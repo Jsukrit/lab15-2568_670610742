@@ -17,8 +17,8 @@ app.get("/", (req: Request, res: Response) => {
   });
 });
 
-app.get("/me", (_req: any, res: any) => {
-  res.status(200)({
+app.get("/me", (_req: Request, res: Response) => {
+  res.status(200).json({
     success: true,
     massage: "Student Information",
     data: {

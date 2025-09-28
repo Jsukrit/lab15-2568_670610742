@@ -12,7 +12,6 @@ router.get("/:studentId/courses", (req: Request, res: Response) => {
 
   if (!result.success) {
     return res.status(400).json({
-      success: false,
       message: "Validation failed",
       error: result.error.issues[0]?.message,
     });

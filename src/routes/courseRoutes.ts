@@ -26,7 +26,6 @@ router.get("/:courses", (req: Request, res: Response) => {
 
   if (!result.success) {
     return res.status(400).json({
-      success: false,
       message: "Validation failed",
       error: result.error.issues[0]?.message,
     });
@@ -52,7 +51,6 @@ router.post("/", (req: Request, res: Response) => {
   const result = zCoursePostBody.safeParse(body);
   if (!result.success) {
     return res.status(400).json({
-      success: false,
       message: "Validation failed",
       error: result.error.issues[0]?.message,
     });
@@ -128,7 +126,7 @@ router.delete("/", (req: Request, res: Response) => {
   res.json({
     success: true,
     message: `Course ${body.courseId} has been delete successfully`,
-    data: deleted,
+    data: courses,
   });
 });
 
